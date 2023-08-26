@@ -1,0 +1,12 @@
+<div>
+
+  {% for question in profile_questions %}
+    <br><label for="{{ question['profile_name'] }}">{{question['question']}}</label><br>
+    <select id="{{ question['profile_name'] }}" name="{{ question['profile_name'] }}">
+    {% for choice in question['choice'].split(",") %}
+      <option value="{{choice}}">{{choice}}</option>
+    {% endfor %}
+    </select>
+  {% endfor %}
+  
+</div>

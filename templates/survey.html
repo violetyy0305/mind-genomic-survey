@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mind Genomic Survey</title>
+
+    {% include 'bootstrap.html' %}
+    
+  </head>
+  <body>
+    <h1>Please answer the questions</h1>
+
+    <form action="/survey/submit" method="post">
+    
+      {% include 'profile.html' %}
+  
+      <input type="submit">
+    </form>
+    
+  </body>
+  
+</html>
