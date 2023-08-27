@@ -1,0 +1,42 @@
+<div class="container">
+  <p>In each of the following screens you will see information about a energy and environmental policy</p>
+  <p>You will be asked to answer the following question about each screen</p>
+
+ 
+      {% for q in survey_questions %}
+          <ul>
+          {% for i in range(4) %}
+             <li>{{q[i]}}</li>
+          {% endfor %}
+          </ul>
+
+    
+        
+          <p>How would you rate this energy and environmental policy?</p><br>
+          
+         
+          
+          <select id="{{ q[0]}}" name="{{q[0]}}">
+              <option value="{{q[1] + q[2] + q[3]+', 1'}}">1 - Low</option>
+              <option value="{{q[1] + q[2] + q[3]+', 2'}}">2</option>
+              <option value="{{q[1] + q[2] + q[3]+', 3'}}">3</option>
+              <option value="{{q[1] + q[2] + q[3]+', 4'}}">4</option>
+              <option value="{{q[1] + q[2] + q[3]+', 5'}}" selected>5 - Medium</option>
+              <option value="{{q[1] + q[2] + q[3]+', 6'}}">6</option>
+              <option value="{{q[1] + q[2] + q[3]+', 7'}}">7</option>
+              <option value="{{q[1] + q[2] + q[3]+', 8'}}">8</option>
+              <option value="{{q[1] + q[2] + q[3]+', 9'}}">9</option>
+          </select>
+             
+           
+         
+          
+        
+            
+      {% endfor %}
+    
+   
+ 
+  
+
+</div>

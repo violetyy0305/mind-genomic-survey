@@ -1,17 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Mind Genomic Survey</title>
-
+    
     {% include 'bootstrap.html' %}
     
   </head>
   <body>
+
+
+    {% include 'nav.html' %}
+
     <h1>Please answer the questions</h1>
+
 
     <form action="/survey/submit" method="post">
     
       {% include 'profile.html' %}
+
+      {% include 'survey_questions.html' %}
   
       <input type="submit">
     </form>
