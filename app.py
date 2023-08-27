@@ -29,7 +29,7 @@ def submit_survey():
   add_survey_to_db(data)
 
   return render_template("survey_submitted.html",
-                    profile_answers=data,
+                    answers=data,
                     profile_questions=profile_questions,
                     survey_questions=survey_questions)
 

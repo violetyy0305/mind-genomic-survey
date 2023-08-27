@@ -8,8 +8,10 @@
   </head>
   <body>
 
-
     {% include 'nav.html' %}
+
+    {% include 'banner.html' %}
+    
     <div class="container-fuild text-center mt-2 mb-4">
         <h1>Please answer the questions</h1>
     </div>
@@ -21,9 +23,11 @@
       {% include 'survey_questions.html' %}
 
       <div class="d-grid gap-2 col-1 mx-auto" style="font-size:160%;">
-        <input type="submit" value="submit" style="background-color:rgb(160, 142, 209);color:rgb(232, 230, 237);">
+        <input type="submit" value="submit" style="background-color:rgb(113, 35, 173);color:rgb(255, 255, 255);">
       </div>
     </form>
+
+    {% include 'footer.html' %}
     
   </body>
   
