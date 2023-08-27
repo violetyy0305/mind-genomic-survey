@@ -1,33 +1,36 @@
-<div class="container">
-  <p>In each of the following screens you will see information about a energy and environmental policy</p>
-  <p>You will be asked to answer the following question about each screen</p>
+<div class="container" style="padding: 30px;">
+  <h4 class="text-center mt-2 mb-4" style="font-family:Courier New;font-weight: bold;margin: 30px;">In each of the following questions you will see information about a energy and environmental policy</h4>
+  <h4 class="text-center mt-2 mb-4" style="font-family:Courier New;font-weight: bold;padding: 30px;">You will be asked to answer the following questions</h4>
 
- 
-      {% for q in survey_questions %}
-          <ul>
-          {% for i in range(4) %}
-             <li>{{q[i]}}</li>
-          {% endfor %}
-          </ul>
-
-    
+      
+        {% for q in survey_questions %}
+            <div class="container  text-center mt-2 mb-4">
+              <h4 style="font-family:Courier New;font-weight: bold;">{{'Question '+q[0][9]}}</h4>
+              <div class="container">
+                
+                {% for i in range(3) %}
+                   <p style="font-size:18px;">{{q[i+1]}}</p>
+                {% endfor %}
+              </div>
+          
         
-          <p>How would you rate this energy and environmental policy?</p><br>
-          
-         
-          
-          <select id="{{ q[0]}}" name="{{q[0]}}">
-              <option value="{{q[1] + q[2] + q[3]+', 1'}}">1 - Low</option>
-              <option value="{{q[1] + q[2] + q[3]+', 2'}}">2</option>
-              <option value="{{q[1] + q[2] + q[3]+', 3'}}">3</option>
-              <option value="{{q[1] + q[2] + q[3]+', 4'}}">4</option>
-              <option value="{{q[1] + q[2] + q[3]+', 5'}}" selected>5 - Medium</option>
-              <option value="{{q[1] + q[2] + q[3]+', 6'}}">6</option>
-              <option value="{{q[1] + q[2] + q[3]+', 7'}}">7</option>
-              <option value="{{q[1] + q[2] + q[3]+', 8'}}">8</option>
-              <option value="{{q[1] + q[2] + q[3]+', 9'}}">9</option>
-          </select>
+            
+              <br><h5 style="font-family:Courier New;font-weight: bold;">How would you rate this energy and environmental policy?</h5>
+              
              
+              
+              <select id="{{ q[0]}}" name="{{q[0]}}">
+                  <option value="{{q[1] + ', '+ q[2] +', '+ q[3]+', 1'}}">1 - Low</option>
+                  <option value="{{q[1] + ', '+ q[2] +', '+ q[3]+', 2'}}">2</option>
+                  <option value="{{q[1] + ', '+ q[2] +', '+ q[3]+', 3'}}">3</option>
+                  <option value="{{q[1] + ', '+ q[2] +', '+ q[3]+', 4'}}">4</option>
+                  <option value="{{q[1] + ', '+ q[2] +', '+ q[3]+', 5'}}" selected>5 - Medium</option>
+                  <option value="{{q[1] + ', '+ q[2] +', '+ q[3]+', 6'}}">6</option>
+                  <option value="{{q[1] + ', '+ q[2] +', '+ q[3]+', 7'}}">7</option>
+                  <option value="{{q[1] + ', '+ q[2] +', '+ q[3]+', 8'}}">8</option>
+                  <option value="{{q[1] + ', '+ q[2] +', '+ q[3]+', 9'}}">9 - High</option>
+              </select>
+            </div>   
            
          
           

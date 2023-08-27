@@ -5,8 +5,13 @@ from generate_radom_survey import generate_random_survey
 
 app = Flask(__name__)
 
-
 @app.route("/")
+def hello():
+  return render_template("home.html")
+
+
+  
+@app.route("/survey")
 def hello_mind():
   profile_questions = load_profile_questions_from_db()
   survey_questions=generate_random_survey()

@@ -10,17 +10,19 @@
 
 
     {% include 'nav.html' %}
-
-    <h1>Please answer the questions</h1>
-
+    <div class="container-fuild text-center mt-2 mb-4">
+        <h1>Please answer the questions</h1>
+    </div>
 
     <form action="/survey/submit" method="post">
     
       {% include 'profile.html' %}
 
       {% include 'survey_questions.html' %}
-  
-      <input type="submit">
+
+      <div class="d-grid gap-2 col-1 mx-auto" style="font-size:160%;">
+        <input type="submit" value="submit" style="background-color:rgb(160, 142, 209);color:rgb(232, 230, 237);">
+      </div>
     </form>
     
   </body>
