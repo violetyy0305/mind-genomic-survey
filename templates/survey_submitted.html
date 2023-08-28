@@ -31,14 +31,19 @@
         
           {% if key[-1].isdigit() %}
             <li class="list-group-item" style="padding:18px;">
-              <div style="font-weight:bold;">{{'Question '+key[-1]+': '}}</div>
+              {% if not key[-2].isdigit() %}
+                <div style="font-weight:bold;">{{'Question '+key[-1]+': '}}</div>
+              {% endif %}
+              {% if key[-2].isdigit() %}
+                <div style="font-weight:bold;">{{'Question '+key[-2]+key[-1]+': '}}</div>
+              {% endif %}
             {% set question_data = answers[key].split(',') %}
               {% for qu in question_data[:-1] %}
                    <div>{{ qu }}</div>
               {% endfor %}
               <div style="padding:20px; font-weight:bold;">{{ 'Your Rating: ' + question_data[-1] }}</div>              
             </li> 
-          {% endif %}   
+          {% endif %}         
         {% endfor %}
       </ul>   
     </div>

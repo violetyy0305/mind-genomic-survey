@@ -41,7 +41,7 @@ category_dict = get_category()
 num_category = len(category_dict)
 # every category has same number of elements
 num_element = len(category_dict[list(category_dict.keys())[0]])
-num_element_per_vignette = 3
+num_element_per_vignette = 4
 num_vignette = 10
 num_per_element = int(
   round((num_element_per_vignette * num_vignette) / (num_category * num_element)))
@@ -73,4 +73,5 @@ def generate_random_survey():
   return survey
 
 
+print(generate_random_survey())
   

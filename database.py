@@ -53,7 +53,7 @@ def load_survey_questions_from_db():
 def add_survey_to_db(data):
   with engine.connect() as conn:
     query = text(
-      "insert into survey_answers(question_1,question_2,question_3,question_4,question_5,question_6,question_7,question_8) values(:question_1,:question_2,:question_3,:question_4,:question_5,:question_6,:question_7,:question_8)"
+      "insert into survey_answers(question_1,question_2,question_3,question_4,question_5,question_6,question_7,question_8,question_9,question_10) values(:question_1,:question_2,:question_3,:question_4,:question_5,:question_6,:question_7,:question_8,:question_9,:question_10)"
     )
     conn.execute(
       query, {
@@ -64,5 +64,7 @@ def add_survey_to_db(data):
         "question_5": data['question_5'],
         "question_6": data['question_6'],
         "question_7": data['question_7'],
-        "question_8": data['question_8']
+        "question_8": data['question_8'],
+        "question_9": data['question_9'],
+        "question_10": data['question_10']
       })

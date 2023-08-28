@@ -1,7 +1,7 @@
 from flask import Flask, render_template, jsonify, request
 from database import load_profile_questions_from_db, load_survey_questions_from_db, add_profile_to_db, add_survey_to_db
 
-from generate_radom_survey import generate_random_survey
+from generate_radom_survey import generate_random_survey, num_element_per_vignette
 
 app = Flask(__name__)
 
@@ -16,7 +16,8 @@ def hello_mind():
   profile_questions = load_profile_questions_from_db()
   survey_questions=generate_random_survey()
   return render_template("survey.html", profile_questions=profile_questions,
-                        survey_questions=survey_questions)
+                        survey_questions=survey_questions,
+                        N=num_element_per_vignette)
 
 
 @app.route("/survey/submit", methods=['post'])
