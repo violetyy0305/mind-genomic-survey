@@ -71,7 +71,3 @@ def generate_random_survey():
     survey.append(surl)
 
   return survey
-
-
-print(generate_random_survey())
-  
