@@ -50,10 +50,10 @@ def load_survey_questions_from_db():
   return survey_questions
 
 
-def add_survey_to_db(data):
+def add_survey_to_db(data,r_time):
   with engine.connect() as conn:
     query = text(
-      "insert into survey_answers(question_1,question_2,question_3,question_4,question_5,question_6,question_7,question_8,question_9,question_10) values(:question_1,:question_2,:question_3,:question_4,:question_5,:question_6,:question_7,:question_8,:question_9,:question_10)"
+      "insert into survey_answers(question_1,question_2,question_3,question_4,question_5,question_6,question_7,question_8,question_9,question_10,r_time) values(:question_1,:question_2,:question_3,:question_4,:question_5,:question_6,:question_7,:question_8,:question_9,:question_10,:r_time)"
     )
     conn.execute(
       query, {
@@ -66,5 +66,29 @@ def add_survey_to_db(data):
         "question_7": data['question_7'],
         "question_8": data['question_8'],
         "question_9": data['question_9'],
-        "question_10": data['question_10']
+        "question_10": data['question_10'],
+        "r_time":r_time
       })
+
+'''
+def add_time_to_db(r_time):
+  with engine.connect() as conn:
+    query = text(
+      "insert into time(q1_r_time, q2_r_time, q3_r_time ,q4_r_time ,q5_r_time ,q6_r_time ,q7_r_time ,q8_r_time ,q9_r_time ,q10_r_time) values(:q1_r_time,:q2_r_time,:q3_r_time,:q4_r_time,:q5_r_time,:q6_r_time,:q7_r_time,:q8_r_time,:q9_r_time,:q10_r_time)"
+    )
+    conn.execute(
+      query, {
+       "q1_r_time":r_time['question_1'], 
+       "q2_r_time":r_time['question_2'], 
+       "q3_r_time":r_time['question_3'], 
+       "q4_r_time":r_time['question_4'], 
+       "q5_r_time":r_time['question_5'], 
+       "q6_r_time":r_time['question_6'], 
+       "q7_r_time":r_time['question_7'], 
+       "q8_r_time":r_time['question_8'], 
+       "q9_r_time":r_time['question_9'], 
+       "q10_r_time":r_time['question_10']
+      })
+
+'''
+
