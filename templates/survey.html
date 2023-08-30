@@ -31,20 +31,34 @@
 
 
     <script>
-    const startTime = new Date();
-
-    document.getElementById('survey-form').addEventListener('submit', function(event) {
-      const endTime = new Date();
-      const elapsedTime = (endTime - startTime) / 1000; // Convert to seconds
+      // creates a Date object representing the current time and assigns it to the variable startTime
+      const startTime = new Date();
+  
+      // adds an event listener to the form with the id survey-form
+      // when the form is submitted, the function specified inside the listener is executed
+        
+      document.getElementById('survey-form').addEventListener('submit', function(event) {
+        const endTime = new Date();
+        const elapsedTime = parseFloat((endTime - startTime) / 1000/60).toFixed(2); // Convert to minute
+        
+        // Add a hidden input field to store the elapsed time
+        const elapsedTimeInput = document.createElement('input');
+         // create a new <input> HTML element
+        elapsedTimeInput.type = 'hidden';
+        // set the type attribute of the input element to 'hidden'
+        elapsedTimeInput.name = 'elapsed_time';
+        // set the name attribute of the input element to 'elapsed_time'
+        // identify input field when the form is submitted
+        elapsedTimeInput.value = elapsedTime;
+        // set the value attribute of the input element 
+        this.appendChild(elapsedTimeInput);
+        // append the hidden input field to the form element 
+        // this refers to the 'survey-form' element within the context of the event listener function 
+        // when the form is submitted, the hidden input field containing the elapsed time will be included in the form data
+      });
       
-      // Add a hidden input field to store the elapsed time
-      const elapsedTimeInput = document.createElement('input');
-      elapsedTimeInput.type = 'hidden';
-      elapsedTimeInput.name = 'elapsed_time';
-      elapsedTimeInput.value = elapsedTime;
-      this.appendChild(elapsedTimeInput);
-    });
-  </script>
+    </script>
+    
   </body>
   
 </html>

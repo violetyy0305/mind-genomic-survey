@@ -25,9 +25,14 @@
       <ul class="list-group">
         
         {% for key in answers.keys() %}     
-          {% if not key[-1].isdigit() %}
+          {% if not key[-1].isdigit() and not key=='elapsed_time' %}
             <li class="list-group-item">{{answers[key]}}</li>
           {% endif %}
+
+          {% if key=='elapsed_time' %}
+              <li class="list-group-item"><b>{{'Your response time: '}}</b> {{+answers[key]+ ' minutes'}}</li>
+          {% endif %}
+        
         
           {% if key[-1].isdigit() %}
             <li class="list-group-item" style="padding:18px;">
@@ -37,13 +42,16 @@
               {% if key[-2].isdigit() %}
                 <div style="font-weight:bold;">{{'Question '+key[-2]+key[-1]+': '}}</div>
               {% endif %}
+              
             {% set question_data = answers[key].split(',') %}
               {% for qu in question_data[:-1] %}
                    <div>{{ qu }}</div>
               {% endfor %}
               <div style="padding:20px; font-weight:bold;">{{ 'Your Rating: ' + question_data[-1] }}</div>              
             </li> 
-          {% endif %}         
+          {% endif %}  
+        
+         
         {% endfor %}
       </ul>   
     </div>

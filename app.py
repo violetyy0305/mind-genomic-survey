@@ -34,6 +34,7 @@ def submit_survey():
   data = request.form
 
   r_time = float(data.get('elapsed_time', 0))
+  # if the 'elapsed_time' field is not present in the form data, return a default value of 0
   
 
   add_profile_to_db(data)
